@@ -32,7 +32,7 @@ const SearchCity = ({
                 {options.map((option: optionType, index: number) => (
                   <ListGroup.Item key={option.name + '-' + index}>
                     <Button onClick={() => onOptionSelect(option)}>
-                      {option.name}
+                      {option.name}, {option.country}
                     </Button>
                   </ListGroup.Item>
                 ))}
