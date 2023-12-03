@@ -1,4 +1,3 @@
-import { type } from 'os';
 import React from 'react';
 import humidity from '../icons/Humidity';
 import precipitation from '../icons/Precipitation';
