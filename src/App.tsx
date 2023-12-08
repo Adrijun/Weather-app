@@ -8,7 +8,7 @@ function App() {
     useForecast();
 
   return (
-    <main className="bg-light p-4">
+    <main className=" p-4">
       <SearchCity
         term={term}
         options={options}

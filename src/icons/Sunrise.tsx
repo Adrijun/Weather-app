@@ -2,7 +2,7 @@ import React from 'react';
 
 function Sunrise() {
   return (
-    <div className="ms-4 me-2">
+    <div className="p-1">
       <svg
         width="20"
         height="20"

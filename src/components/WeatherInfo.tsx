@@ -24,7 +24,10 @@ const icons = {
 const WeatherInfo = ({ icon, title, info, description }: Props) => {
   const Icon = icons[icon];
   return (
-    <article>
+    <article
+      className=" col-6 m-2 p-1 rounded mx-auto "
+      style={{ backgroundColor: 'rgb(230, 230, 230)', opacity: '0.9' }}
+    >
       <Icon /> <h4>{title}</h4>
       <h5>{info}</h5>
       <p> {description}</p>

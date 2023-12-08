@@ -4,7 +4,6 @@ import Sunrise from '../icons/Sunrise';
 import Sunset from '../icons/Sunset';
 import { convertTimestampToTime } from '../constants/constants';
 import WeatherInfo from './WeatherInfo';
-import Visibility from '../icons/Visibility';
 
 type Props = {
   data: forecastType;
@@ -28,7 +27,10 @@ const Forecast = ({ data }: Props) => {
           </p>
         </section>
 
-        <section className="col-3 bg-light p-4 mx-auto d-flex flex-row text-center overflow-scroll">
+        <section
+          className="col-8  p-4 mx-auto d-flex flex-row text-center overflow-scroll rounded m-2"
+          style={{ backgroundColor: 'rgb(230, 230, 230)', opacity: '0.9' }}
+        >
           {data.list.map((item, i) => (
             <div key={i}>
               <p>{i === 0 ? 'Now' : new Date(item.dt * 1000).getHours()}</p>
@@ -41,69 +43,71 @@ const Forecast = ({ data }: Props) => {
           ))}
         </section>
 
-        <section className="d-flex align-items-center justify-content-center p-4  ">
+        <section
+          className="d-flex align-items-center justify-content-center p-4 col-6 mx-auto m-1  "
+          style={{ backgroundColor: 'rgb(230, 230, 230)', opacity: '0.9' }}
+        >
           <Sunrise /> <span>{convertTimestampToTime(data.sunrise)}</span>
           <Sunset /> <span>{convertTimestampToTime(data.sunset)}</span>
         </section>
-        <section>
-          <WeatherInfo
-            icon="wind"
-            title="Wind"
-            description="Wind"
-            info={`${Math.round(today.wind.speed)} km/h`}
-          />
-          <WeatherInfo
-            icon="feelslike"
-            title="Feels like"
-            info={`${Math.round(today.main.feels_like)}° `}
-            description=""
-          />
-          <WeatherInfo
-            icon="humidity"
-            title="Humidity"
-            info={`${Math.round(today.main.humidity)}% `}
-            description=""
-          />
+        <section className="row">
+          <div className="col-md-6">
+            <WeatherInfo
+              icon="wind"
+              title="Wind"
+              description="Wind"
+              info={`${Math.round(today.wind.speed)} km/h`}
+            />
 
-          <WeatherInfo
-            icon="pop"
-            title="Precipitation"
-            info={`${Math.round(
-              today.pop * 100
-            )}% probability of precipitation clouds at `}
-            description={
-              Math.round(today.pop * 100) > 50
-                ? 'Expect more precipitation'
-                : 'Expect less precipitation'
-            }
-          />
-          <WeatherInfo
-            icon="humidity"
-            title="Humidity"
-            info={`${Math.round(today.main.humidity)}% `}
-            description=""
-          />
-          <WeatherInfo
-            icon="pressure"
-            title="Pressure"
-            info={`${today.main.pressure}hPa `}
-            description={`${
-              Math.round(today.main.pressure) < 1013
-                ? 'Lower than 1013hPa often indicates unstable weather and clouds.  '
-                : 'Higher than 1013hPa often indicate stable weather and clear skies.'
-            } `}
-          />
+            <WeatherInfo
+              icon="humidity"
+              title="Humidity"
+              info={`${Math.round(today.main.humidity)}% `}
+              description=""
+            />
 
-          <WeatherInfo
-            icon="visibility"
-            title="Visibility"
-            info={`${(today.visibility / 1000).toFixed()} km`}
-            description={`${
-              Math.round(today.visibility) < 10
-                ? 'Not so clear day '
-                : 'Clear day'
-            } `}
-          />
+            <WeatherInfo
+              icon="pop"
+              title="Precipitation"
+              info={`${Math.round(
+                today.pop * 100
+              )}% probability of precipitation clouds at `}
+              description={
+                Math.round(today.pop * 100) > 50
+                  ? 'Expect more precipitation'
+                  : 'Expect less precipitation'
+              }
+            />
+          </div>
+          <div className="col-md-6">
+            <WeatherInfo
+              icon="feelslike"
+              title="Feels like"
+              info={`${Math.round(today.main.feels_like)}° `}
+              description=""
+            />
+            <WeatherInfo
+              icon="pressure"
+              title="Pressure"
+              info={`${today.main.pressure}hPa `}
+              description={`${
+                Math.round(today.main.pressure) < 1013
+                  ? 'Lower than 1013hPa often indicates unstable weather and clouds.  '
+                  : 'Higher than 1013hPa often indicate stable weather and clear skies.'
+              } `}
+            />
+
+            <WeatherInfo
+              icon="visibility"
+              title="Visibility"
+              info={`${(today.visibility / 1000).toFixed()} km`}
+              description={`${
+                Math.round(today.visibility) < 10
+                  ? 'Not so clear day '
+                  : 'Clear day'
+              } `}
+            />
+          </div>
         </section>
       </div>
     </>
