@@ -28,7 +28,7 @@ const Forecast = ({ data }: Props) => {
         </section>
 
         <section
-          className="col-8  p-4 mx-auto d-flex flex-row text-center overflow-scroll rounded m-2"
+          className="col-6  p-4 mx-auto d-flex flex-row text-center overflow-scroll rounded m-2"
           style={{ backgroundColor: 'rgb(230, 230, 230)', opacity: '0.9' }}
         >
           {data.list.map((item, i) => (
