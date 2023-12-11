@@ -1,5 +1,4 @@
 import './App.css';
-import { Button, ListGroup } from 'react-bootstrap';
 import SearchCity from './components/SearchCity';
 import useForecast from './hooks/useForecasts';
 import Forecast from './components/Forecast';
@@ -9,7 +8,7 @@ function App() {
     useForecast();
 
   return (
-    <main className="bg-light p-4">
+    <main className=" p-4">
       <SearchCity
         term={term}
         options={options}

@@ -38,7 +38,7 @@ const useForecast = () => {
 
       const forecastData = {
         ...forecastResponse.data.city,
-        list: forecastResponse.data.list.slice(0, 4),
+        list: forecastResponse.data.list.slice(0, 12),
       };
       setForecast(forecastData);
       console.log(forecastData, 'data');
