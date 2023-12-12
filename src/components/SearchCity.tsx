@@ -16,7 +16,7 @@ const SearchCity = ({
   onSubmit,
 }: Props) => {
   return (
-    <main className="bg-light p-4 d-flex align-items-center justify-content-center">
+    <main className=" p-4 d-flex align-items-center justify-content-center">
       <section className="">
         <h2 className="text-center">Weather Forecast</h2>
         {/* <p className="text-center">

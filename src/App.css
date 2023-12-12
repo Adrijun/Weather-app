@@ -1,0 +1,14 @@
+body {
+  height: 100%;
+  background: rgb(115, 151, 161);
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(115, 151, 161, 1) 100%
+  );
+}
+
+.WeatherInfo,
+.SunTime {
+  background-color: rgba(230, 230, 230, 0.2);
+}

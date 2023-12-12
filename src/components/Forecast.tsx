@@ -4,16 +4,20 @@ import Sunrise from '../icons/Sunrise';
 import Sunset from '../icons/Sunset';
 import { convertTimestampToTime } from '../constants/constants';
 import WeatherInfo from './WeatherInfo';
-
+import Snow from './Snow'; // Importera Snow-komponenten
 type Props = {
   data: forecastType;
 };
 const Forecast = ({ data }: Props) => {
   const today = data.list[0];
+
+  const isSnowing = today.weather[0].main.toLowerCase() === 'snow';
   return (
     <>
-      <div className="bg-light p-4d-flex align-items text-center">
-        <section className="bg-light p-4d-flex align-items text-center">
+      {isSnowing && <Snow numberOfSnowflakes={50} />}{' '}
+      {/* Villkorlig rendering för Snow */}
+      <div className=" p-4d-flex align-items text-center">
+        <section className=" p-4d-flex align-items text-center">
           <h2>
             {data.name},<span> {data.country} </span>
           </h2>
@@ -27,10 +31,7 @@ const Forecast = ({ data }: Props) => {
           </p>
         </section>
 
-        <section
-          className="col-6  p-4 mx-auto d-flex flex-row text-center overflow-scroll rounded m-2"
-          style={{ backgroundColor: 'rgb(230, 230, 230)', opacity: '0.9' }}
-        >
+        <section className="col-6  p-4 mx-auto d-flex flex-row text-center overflow-scroll rounded m-2 SunTime">
           {data.list.map((item, i) => (
             <div key={i}>
               <p>{i === 0 ? 'Now' : new Date(item.dt * 1000).getHours()}</p>
@@ -43,13 +44,11 @@ const Forecast = ({ data }: Props) => {
           ))}
         </section>
 
-        <section
-          className="d-flex align-items-center justify-content-center p-4 col-6 mx-auto m-1  "
-          style={{ backgroundColor: 'rgb(230, 230, 230)', opacity: '0.9' }}
-        >
+        <section className="d-flex align-items-center justify-content-center p-4 col-6 col-md-2 mx-auto m-1 rounded SunTime">
           <Sunrise /> <span>{convertTimestampToTime(data.sunrise)}</span>
           <Sunset /> <span>{convertTimestampToTime(data.sunset)}</span>
         </section>
+
         <section className="row">
           <div className="col-md-6">
             <WeatherInfo
