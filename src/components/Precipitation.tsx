@@ -1,14 +1,14 @@
-// RainComponent.tsx
 import '../styles/snowflakes.css';
 import React, { FC, useEffect, useState } from 'react';
 
 interface SnowComponentProps {
   numberOfSnowflakes: number;
+  weatherType: string;
 }
 const getRandomDelay = () => Math.random() * 10;
-const Snow: FC<SnowComponentProps> = ({ numberOfSnowflakes }) => {
+const Snow: FC<SnowComponentProps> = ({ numberOfSnowflakes, weatherType }) => {
   const [drops, setDrops] = useState<{ position: number; delay: number }[]>([]);
-
+  const isRaining = weatherType === 'rain';
   useEffect(() => {
     // Generera en lista med slumpmässiga positioner och fördröjningar för regndroppar
     const randomSnowFlakes = Array.from({ length: numberOfSnowflakes }, () => ({
@@ -17,13 +17,12 @@ const Snow: FC<SnowComponentProps> = ({ numberOfSnowflakes }) => {
     }));
     setDrops(randomSnowFlakes);
   }, [numberOfSnowflakes]);
-
   return (
-    <div className="snow-container">
+    <div>
       {drops.map((drop, index) => (
         <div
           key={index}
-          className="snowflake"
+          className={isRaining ? 'raindrop' : 'snowflake'}
           style={{
             left: `${drop.position}%`,
             animationDelay: `${drop.delay}s`,

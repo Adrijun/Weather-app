@@ -1,10 +1,11 @@
 body {
   height: 100%;
-  background: rgb(115, 151, 161);
+  min-height: 100vh;
+  background: rgb(92, 139, 152);
   background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(115, 151, 161, 1) 100%
+    to top,
+    rgb(92, 139, 152) 0%,
+    rgba(255, 255, 255, 1) 90%
   );
 }
 

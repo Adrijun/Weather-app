@@ -4,17 +4,26 @@ import Sunrise from '../icons/Sunrise';
 import Sunset from '../icons/Sunset';
 import { convertTimestampToTime } from '../constants/constants';
 import WeatherInfo from './WeatherInfo';
-import Snow from './Snow'; // Importera Snow-komponenten
+import Snow from './Precipitation'; // Importera Snow-komponenten
+import Clouds from './Clouds';
 type Props = {
   data: forecastType;
 };
 const Forecast = ({ data }: Props) => {
   const today = data.list[0];
 
-  const isSnowing = today.weather[0].main.toLowerCase() === 'snow';
+  const weatherType = today.weather[0].main.toLowerCase();
   return (
     <>
-      {isSnowing && <Snow numberOfSnowflakes={50} />}{' '}
+      {(weatherType === 'rain' ||
+        weatherType === 'snow' ||
+        weatherType === 'clouds') && (
+        <>
+          {console.log('Weather Type:', weatherType)}
+          <Clouds numberOfClouds={4} weatherType={weatherType} />
+          <Snow numberOfSnowflakes={50} weatherType={weatherType} />
+        </>
+      )}
       {/* Villkorlig rendering för Snow */}
       <div className=" p-4d-flex align-items text-center">
         <section className=" p-4d-flex align-items text-center">
@@ -49,8 +58,8 @@ const Forecast = ({ data }: Props) => {
           <Sunset /> <span>{convertTimestampToTime(data.sunset)}</span>
         </section>
 
-        <section className="row">
-          <div className="col-md-6">
+        <section className="row ">
+          <div className="col-md-6 ">
             <WeatherInfo
               icon="wind"
               title="Wind"
