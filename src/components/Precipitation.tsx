@@ -2,21 +2,41 @@ import '../styles/snowflakes.css';
 import React, { FC, useEffect, useState } from 'react';
 
 interface SnowComponentProps {
-  numberOfSnowflakes: number;
+  numberOfDrops: number;
   weatherType: string;
 }
+
 const getRandomDelay = () => Math.random() * 10;
-const Snow: FC<SnowComponentProps> = ({ numberOfSnowflakes, weatherType }) => {
+
+const Precipitation: FC<SnowComponentProps> = ({
+  numberOfDrops,
+  weatherType,
+}) => {
   const [drops, setDrops] = useState<{ position: number; delay: number }[]>([]);
+  const isSnowing = weatherType === 'snow';
   const isRaining = weatherType === 'rain';
+
   useEffect(() => {
-    // Generera en lista med slumpmässiga positioner och fördröjningar för regndroppar
-    const randomSnowFlakes = Array.from({ length: numberOfSnowflakes }, () => ({
+    if (!isSnowing && !isRaining) {
+      // Om det inte är snö eller regn, återställ dropparna till en tom lista
+      setDrops([]);
+      return;
+    }
+
+    // Generera en lista med slumpmässiga positioner och fördröjningar för snöflingor eller regndroppar
+    const randomDrops = Array.from({ length: numberOfDrops }, () => ({
       position: Math.random() * 100,
-      delay: getRandomDelay(),
+      delay: getRandomDelay() - 10,
     }));
-    setDrops(randomSnowFlakes);
-  }, [numberOfSnowflakes]);
+
+    setDrops(randomDrops);
+  }, [numberOfDrops, isSnowing, isRaining]);
+
+  if (!isSnowing && !isRaining) {
+    // Om det inte är snö eller regn, rendera inte något
+    return null;
+  }
+
   return (
     <div>
       {drops.map((drop, index) => (
@@ -33,4 +53,4 @@ const Snow: FC<SnowComponentProps> = ({ numberOfSnowflakes, weatherType }) => {
   );
 };
 
-export default Snow;
+export default Precipitation;

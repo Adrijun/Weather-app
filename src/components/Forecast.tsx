@@ -4,7 +4,7 @@ import Sunrise from '../icons/Sunrise';
 import Sunset from '../icons/Sunset';
 import { convertTimestampToTime } from '../constants/constants';
 import WeatherInfo from './WeatherInfo';
-import Snow from './Precipitation'; // Importera Snow-komponenten
+import Precipitation from './Precipitation'; // Importera Snow-komponenten
 import Clouds from './Clouds';
 type Props = {
   data: forecastType;
@@ -13,15 +13,16 @@ const Forecast = ({ data }: Props) => {
   const today = data.list[0];
 
   const weatherType = today.weather[0].main.toLowerCase();
+
   return (
     <>
-      {(weatherType === 'rain' ||
+      {console.log('Weather Type:', weatherType)}
+      {(weatherType === 'clouds' ||
         weatherType === 'snow' ||
-        weatherType === 'clouds') && (
+        weatherType === 'rain') && (
         <>
-          {console.log('Weather Type:', weatherType)}
           <Clouds numberOfClouds={4} weatherType={weatherType} />
-          <Snow numberOfSnowflakes={50} weatherType={weatherType} />
+          <Precipitation numberOfDrops={50} weatherType={weatherType} />
         </>
       )}
       {/* Villkorlig rendering för Snow */}

@@ -1,23 +1,50 @@
-.clouds {
-  /* position: relative;
-  height: 100%;
-  background: url(https://static.radulescu.me/examples/clouds/clouds1000.png);
-  background: url(https://static.radulescu.me/examples/clouds/clouds1000.png) 0
-      200px,
-    url(https://static.radulescu.me/examples/clouds/clouds1200_1.png) 0 300px,
-    url(https://static.radulescu.me/examples/clouds/clouds1000_blur3.png) 100px
-      250px;
-  animation: wind 20s linear infinite;
+/* clouds.css */
+
+/* .clouds {
+  position: absolute;
+  height: 50px;
+  width: 100px;
+
+  border-radius: 50%;
+  opacity: 0.8;
+} */
+
+.cloudsOne {
+  margin: 1%;
+  animation: moveRightToLeft 35s linear infinite;
+
+  position: absolute;
+
+  width: 100px;
+  height: 60px;
+  background-color: rgb(192, 192, 192);
+  border-radius: 90%;
+  box-shadow: 20px -20px 0 rgb(209, 208, 208), 40px 0 0 rgb(186, 186, 186),
+    60px -20px 0 rgb(208, 208, 208), 80px 0 0 white;
+  z-index: -1;
+  filter: blur(1px);
 }
-@keyframes wind {
+
+.cloudsTwo {
+  margin: 5%;
+  animation: moveRightToLeft 35s linear infinite;
+
+  position: absolute;
+
+  width: 100px;
+  height: 60px;
+  background-color: rgb(177, 177, 177);
+  border-radius: 90%;
+  box-shadow: 20px -20px 0 rgb(209, 208, 208), 40px 0 0 rgb(186, 186, 186),
+    60px -20px 0 rgb(208, 208, 208), 80px 0 0 white;
+  z-index: -1;
+}
+
+@keyframes moveRightToLeft {
   0% {
-    background-position: 0 200px, 0 300px, 100px 250px;
+    left: 100%;
   }
   100% {
-    background-position: 1000px 200px, 1200px 300px, 1100px 250px;
-  } */
-
-  width: 20px;
-  height: 20px;
-  background-color: black;
+    left: 0%;
+  }
 }

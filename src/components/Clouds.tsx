@@ -1,32 +1,38 @@
 import '../styles/clouds.css';
+import '../styles/clouds.css';
 import React, { FC, useEffect, useState } from 'react';
 
 interface CloudsComponentProps {
   numberOfClouds: number;
   weatherType: string;
 }
+
 const getRandomDelay = () => Math.random() * 10;
+
 const Clouds: FC<CloudsComponentProps> = ({ numberOfClouds, weatherType }) => {
-  const [clouds, setDrops] = useState<{ position: number; delay: number }[]>(
+  const [clouds, setClouds] = useState<{ position: number; delay: number }[]>(
     []
   );
   const isCloud = weatherType === 'clouds';
+
   useEffect(() => {
-    // Generera en lista med slumpmässiga positioner och fördröjningar för regndroppar
+    console.log('Running Clouds useEffect');
+    // Generera en lista med slumpmässiga positioner och fördröjningar för molnen
     const randomClouds = Array.from({ length: numberOfClouds }, () => ({
       position: Math.random() * 1,
       delay: getRandomDelay(),
     }));
-    setDrops(randomClouds);
-  }, [numberOfClouds]);
+    setClouds(randomClouds);
+  }, [numberOfClouds, weatherType]);
+
+  console.log('Render Clouds Component');
+
   return (
     <div>
       {clouds.map((cloud, index) => (
         <div
           key={index}
-          className={
-            weatherType === 'clouds' ? 'clouds' : 'other-weather-class'
-          }
+          className={`clouds ${index % 2 === 0 ? 'cloudsOne' : 'cloudsTwo'}`}
           style={{
             left: `${cloud.position}%`,
             animationDelay: `${cloud.delay}s`,
