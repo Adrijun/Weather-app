@@ -2,7 +2,6 @@ import './App.css';
 import SearchCity from './components/SearchCity';
 import useForecast from './hooks/useForecasts';
 import Forecast from './components/Forecast';
-import Snow from './components/Precipitation';
 
 function App() {
   const { term, options, forecast, onInputChange, onOptionSelect, onSubmit } =
@@ -10,7 +9,6 @@ function App() {
 
   return (
     <>
-      {/* <Snow numberOfSnowflakes={50} /> */}
       <main className=" p-4">
         <SearchCity
           term={term}

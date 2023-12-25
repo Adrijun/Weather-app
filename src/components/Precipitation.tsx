@@ -1,5 +1,6 @@
-import '../styles/snowflakes.css';
-import React, { FC, useEffect, useState } from 'react';
+import React from 'react';
+import Snowflake from '../icons/Snowflake';
+import Raindrop from '../icons/Raindrop';
 
 interface SnowComponentProps {
   numberOfDrops: number;
@@ -8,32 +9,29 @@ interface SnowComponentProps {
 
 const getRandomDelay = () => Math.random() * 10;
 
-const Precipitation: FC<SnowComponentProps> = ({
+const Precipitation: React.FC<SnowComponentProps> = ({
   numberOfDrops,
   weatherType,
 }) => {
-  const [drops, setDrops] = useState<{ position: number; delay: number }[]>([]);
-  const isSnowing = weatherType === 'snow';
-  const isRaining = weatherType === 'rain';
+  const [drops, setDrops] = React.useState<
+    { position: number; delay: number }[]
+  >([]);
 
-  useEffect(() => {
-    if (!isSnowing && !isRaining) {
-      // Om det inte är snö eller regn, återställ dropparna till en tom lista
+  React.useEffect(() => {
+    if (weatherType !== 'snow' && weatherType !== 'rain') {
       setDrops([]);
       return;
     }
 
-    // Generera en lista med slumpmässiga positioner och fördröjningar för snöflingor eller regndroppar
     const randomDrops = Array.from({ length: numberOfDrops }, () => ({
       position: Math.random() * 100,
       delay: getRandomDelay() - 10,
     }));
 
     setDrops(randomDrops);
-  }, [numberOfDrops, isSnowing, isRaining]);
+  }, [numberOfDrops, weatherType]);
 
-  if (!isSnowing && !isRaining) {
-    // Om det inte är snö eller regn, rendera inte något
+  if (weatherType !== 'snow' && weatherType !== 'rain') {
     return null;
   }
 
@@ -42,12 +40,15 @@ const Precipitation: FC<SnowComponentProps> = ({
       {drops.map((drop, index) => (
         <div
           key={index}
-          className={isRaining ? 'raindrop' : 'snowflake'}
+          className={weatherType === 'snow' ? 'snowflake' : 'raindrop'}
           style={{
             left: `${drop.position}%`,
             animationDelay: `${drop.delay}s`,
           }}
-        />
+        >
+          {weatherType === 'snow' ? <Snowflake /> : null}
+          {weatherType === 'rain' ? <Raindrop /> : null}
+        </div>
       ))}
     </div>
   );

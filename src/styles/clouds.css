@@ -1,50 +1,40 @@
-/* clouds.css */
-
-/* .clouds {
+.clouds {
   position: absolute;
-  height: 50px;
-  width: 100px;
-
-  border-radius: 50%;
-  opacity: 0.8;
-} */
-
-.cloudsOne {
-  margin: 1%;
-  animation: moveRightToLeft 35s linear infinite;
-
-  position: absolute;
-
   width: 100px;
   height: 60px;
+}
+.cloudsOne {
+  margin: 1%;
+  animation: moveFromLeftToRight 35s linear infinite;
+  top: 20px;
+  left: 20px;
   background-color: rgb(192, 192, 192);
   border-radius: 90%;
   box-shadow: 20px -20px 0 rgb(209, 208, 208), 40px 0 0 rgb(186, 186, 186),
-    60px -20px 0 rgb(208, 208, 208), 80px 0 0 white;
+    60px -20px 0 rgb(208, 208, 208), 80px 0 0 rgb(218, 218, 218);
   z-index: -1;
-  filter: blur(1px);
+  filter: blur(3px);
+  opacity: 0.8;
 }
 
 .cloudsTwo {
-  margin: 5%;
-  animation: moveRightToLeft 35s linear infinite;
+  margin: 1%;
+  animation: moveFromLeftToRight 35s linear infinite;
 
-  position: absolute;
-
-  width: 100px;
-  height: 60px;
   background-color: rgb(177, 177, 177);
   border-radius: 90%;
   box-shadow: 20px -20px 0 rgb(209, 208, 208), 40px 0 0 rgb(186, 186, 186),
-    60px -20px 0 rgb(208, 208, 208), 80px 0 0 white;
+    60px -20px 0 rgb(208, 208, 208), 80px 0 0 rgb(197, 197, 197);
   z-index: -1;
+  filter: blur(2px);
+  opacity: 0.8;
 }
 
-@keyframes moveRightToLeft {
-  0% {
+@keyframes moveFromLeftToRight {
+  10% {
     left: 100%;
   }
   100% {
-    left: 0%;
+    right: 100%;
   }
 }

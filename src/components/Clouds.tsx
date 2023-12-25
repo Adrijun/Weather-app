@@ -1,5 +1,5 @@
 import '../styles/clouds.css';
-import '../styles/clouds.css';
+
 import React, { FC, useEffect, useState } from 'react';
 
 interface CloudsComponentProps {
@@ -16,16 +16,16 @@ const Clouds: FC<CloudsComponentProps> = ({ numberOfClouds, weatherType }) => {
   const isCloud = weatherType === 'clouds';
 
   useEffect(() => {
-    console.log('Running Clouds useEffect');
-    // Generera en lista med slumpmässiga positioner och fördröjningar för molnen
+    if (!isCloud) {
+      setClouds([]);
+      return;
+    }
     const randomClouds = Array.from({ length: numberOfClouds }, () => ({
       position: Math.random() * 1,
-      delay: getRandomDelay(),
+      delay: getRandomDelay() - 10,
     }));
     setClouds(randomClouds);
   }, [numberOfClouds, weatherType]);
-
-  console.log('Render Clouds Component');
 
   return (
     <div>

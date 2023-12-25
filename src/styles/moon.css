@@ -1,0 +1,25 @@
+.moon {
+  width: 20px;
+  height: 20px;
+  margin: 1%;
+  animation: moveFromLeftToRight 35s linear infinite;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #9d9d9d;
+  box-shadow: 0 0 60px 30px #f5f5f5, 0 0 100px 60px rgb(199, 199, 199);
+  z-index: -1;
+  opacity: 0.9;
+}
+
+@keyframes moveFromLeftToRight {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: calc(100%);
+  }
+}
