@@ -8,17 +8,19 @@ function App() {
     useForecast();
 
   return (
-    <main className=" p-4">
-      <SearchCity
-        term={term}
-        options={options}
-        onInputChange={onInputChange}
-        onOptionSelect={onOptionSelect}
-        onSubmit={onSubmit}
-      />
+    <>
+      <main className=" p-4">
+        <SearchCity
+          term={term}
+          options={options}
+          onInputChange={onInputChange}
+          onOptionSelect={onOptionSelect}
+          onSubmit={onSubmit}
+        />
 
-      {forecast && <Forecast data={forecast} />}
-    </main>
+        {forecast && <Forecast data={forecast} />}
+      </main>
+    </>
   );
 }
 

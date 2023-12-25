@@ -2,7 +2,7 @@ import React from 'react';
 
 function Sunset() {
   return (
-    <div className="p-1">
+    <div className="p-1 Sunset">
       <svg
         width="20"
         height="20"

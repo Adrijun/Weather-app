@@ -1,0 +1,21 @@
+body {
+  height: 100%;
+  min-height: 100vh;
+  background: rgb(92, 139, 152);
+  background: linear-gradient(
+    to top,
+    rgb(62, 125, 143) 0%,
+    rgba(255, 255, 255, 1) 90%
+  );
+}
+
+.SunTime {
+  background-color: rgba(230, 230, 230, 0.9);
+}
+.hourly-forecast {
+  background-color: rgba(235, 235, 235, 0.8);
+}
+
+.WeatherInfo {
+  background-color: rgba(230, 230, 230, 0.8);
+}

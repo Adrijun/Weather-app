@@ -1,0 +1,28 @@
+.sun {
+  width: 20px;
+  height: 20px;
+  margin: 1%;
+  animation: moveFromLeftToRight 35s linear infinite;
+  position: absolute; /* Lägg till position: absolute för att använda top, right, left eller bottom */
+  top: 20px;
+  left: 20px; /* Använd left istället för right för att starta från vänster */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fdbe00;
+  box-shadow: 0 0 60px 30px #ff9900, 0 0 100px 60px rgb(255, 183, 0),
+    0 0 140px 90px rgb(255, 217, 0);
+  z-index: -1;
+  opacity: 0.9;
+}
+
+@keyframes moveFromLeftToRight {
+  0% {
+    left: 0%; /* Använd left istället för right för att starta från vänster */
+  }
+  100% {
+    left: calc(
+      100%
+    ); /* Använd calc() för att hantera rörelsen från vänster till höger */
+  }
+}
