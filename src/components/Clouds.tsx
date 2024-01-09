@@ -25,21 +25,21 @@ const Clouds: FC<CloudsComponentProps> = ({ numberOfClouds, weatherType }) => {
       delay: getRandomDelay() - 10,
     }));
     setClouds(randomClouds);
-  }, [numberOfClouds, weatherType]);
+  }, [isCloud, numberOfClouds, weatherType]);
 
   return (
-    <div>
+    <section className="cloudsSection">
       {clouds.map((cloud, index) => (
         <div
           key={index}
           className={`clouds ${index % 2 === 0 ? 'cloudsOne' : 'cloudsTwo'}`}
           style={{
-            left: `${cloud.position}%`,
+            left: `${cloud.position * 50}%`,
             animationDelay: `${cloud.delay}s`,
           }}
         />
       ))}
-    </div>
+    </section>
   );
 };
 

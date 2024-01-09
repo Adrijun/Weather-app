@@ -13,9 +13,14 @@ body {
   background-color: rgba(230, 230, 230, 0.9);
 }
 .hourly-forecast {
-  background-color: rgba(235, 235, 235, 0.8);
+  background-color: rgba(235, 235, 235, 0.9);
 }
 
 .WeatherInfo {
   background-color: rgba(230, 230, 230, 0.8);
+}
+@media only screen and (max-width: 767px) {
+  body {
+    overflow-x: hidden;
+  }
 }

@@ -36,7 +36,7 @@ const Precipitation: React.FC<SnowComponentProps> = ({
   }
 
   return (
-    <div>
+    <section className="precipitationSection">
       {drops.map((drop, index) => (
         <div
           key={index}
@@ -50,7 +50,7 @@ const Precipitation: React.FC<SnowComponentProps> = ({
           {weatherType === 'rain' ? <Raindrop /> : null}
         </div>
       ))}
-    </div>
+    </section>
   );
 };
 
