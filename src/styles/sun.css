@@ -2,7 +2,7 @@
   width: 20px;
   height: 20px;
   margin: 1%;
-  animation: moveFromLeftToRight 35s linear infinite;
+  animation: moveFromLeftToRight 60s linear infinite;
   position: absolute; /* Lägg till position: absolute för att använda top, right, left eller bottom */
   top: 20px;
   left: 20px; /* Använd left istället för right för att starta från vänster */
@@ -18,11 +18,30 @@
 
 @keyframes moveFromLeftToRight {
   0% {
-    left: 0%; /* Använd left istället för right för att starta från vänster */
+    left: 0%;
+    opacity: 0;
   }
+
+  2% {
+    left: 3%;
+    opacity: 0.3;
+  }
+
+  7% {
+    left: 7%;
+    opacity: 1;
+  }
+
   100% {
-    left: calc(
-      100%
-    ); /* Använd calc() för att hantera rörelsen från vänster till höger */
+    left: calc(100%);
+    opacity: 0;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .sun {
+    animation: moveFromLeftToRight 25s linear infinite;
+  }
+  .sunMoonSection {
+    overflow-x: hidden;
   }
 }

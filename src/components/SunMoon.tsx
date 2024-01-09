@@ -14,7 +14,7 @@ const SunMoon: FC<SunMoonComponentProps> = ({
   weatherType,
 }) => {
   const [isDay, setIsDay] = useState<boolean>(false);
-  console.log(sunrise, 'sunrise');
+
   useEffect(() => {
     const currentTime = Math.floor(Date.now() / 1000); // Aktuell tid i sekunder sedan UNIX-epoken
 
@@ -24,7 +24,7 @@ const SunMoon: FC<SunMoonComponentProps> = ({
   }, [sunrise, sunset]);
 
   return (
-    <div>
+    <section className="sunMoonSection">
       {weatherType === 'clear' && (
         <div>
           {isDay ? (
@@ -34,7 +34,7 @@ const SunMoon: FC<SunMoonComponentProps> = ({
           )}
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

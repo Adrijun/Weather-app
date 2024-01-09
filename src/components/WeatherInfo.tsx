@@ -24,7 +24,7 @@ const icons = {
 const WeatherInfo = ({ icon, title, info, description }: Props) => {
   const Icon = icons[icon];
   return (
-    <article className=" col-6 m-2 p-1 rounded mx-auto  WeatherInfo">
+    <article className=" row p-1 d-flex flex-column align-items-stretch justify-content-center text-center  m-2 WeatherInfo">
       <Icon /> <h4>{title}</h4>
       <h5>{info}</h5>
       <p> {description}</p>

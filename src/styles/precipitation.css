@@ -1,8 +1,14 @@
-.snow-container {
+/* .snow-container {
   position: absolute;
   display: inline;
   animation: fall 10s linear infinite;
   z-index: -1;
+} */
+
+.precipitationSection,
+.raindrop,
+.snowflake {
+  overflow-x: hidden;
 }
 
 .snowflake,
