@@ -3,8 +3,8 @@ import Sun from './Sun';
 import Moon from './Moon';
 
 interface SunMoonComponentProps {
-  sunrise: number; // Tid för soluppgång i sekunder sedan UNIX-epoken
-  sunset: number; // Tid för solnedgång i sekunder sedan UNIX-epoken
+  sunrise: number;
+  sunset: number;
   weatherType: string;
 }
 
@@ -14,11 +14,11 @@ const SunMoon: FC<SunMoonComponentProps> = ({
   weatherType,
 }) => {
   const [isDay, setIsDay] = useState<boolean>(false);
-
+  // useEffect to update isDay based on the current time, sunrise, and sunset
   useEffect(() => {
-    const currentTime = Math.floor(Date.now() / 1000); // Aktuell tid i sekunder sedan UNIX-epoken
+    const currentTime = Math.floor(Date.now() / 1000);
 
-    // Avgör om det är dag eller natt baserat på aktuell tid, soluppgång och solnedgång
+    // Check if it is daytime
     const isDaytime = currentTime > sunrise && currentTime < sunset;
     setIsDay(isDaytime);
   }, [sunrise, sunset]);

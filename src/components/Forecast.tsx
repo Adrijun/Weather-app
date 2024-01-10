@@ -8,12 +8,14 @@ import Precipitation from './Precipitation';
 import Clouds from './Clouds';
 import SunMoon from './SunMoon';
 import '../App.css';
+import { log } from 'console';
 type Props = {
   data: forecastType;
 };
 const Forecast = ({ data }: Props) => {
+  // Extracting today's forecast data
   const today = data.list[0];
-
+  // Determine the current weather type
   const weatherType = today.weather[0].main.toLowerCase();
 
   return (
