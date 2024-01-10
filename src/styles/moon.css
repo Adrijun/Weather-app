@@ -1,0 +1,76 @@
+.moonSection {
+  position: absolute;
+  top: -15px;
+
+  z-index: -1;
+  width: 100%;
+  height: 50vh;
+  background: rgb(92, 139, 152);
+  background: linear-gradient(
+    to top,
+    rgba(92, 139, 152, 0) 10%,
+    rgb(21, 93, 113) 90%
+  );
+}
+
+.moon {
+  left: 55%;
+  margin: 1%;
+  top: 5%;
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  box-shadow: 2rem 2rem 0 0 #fff77e;
+  z-index: -1;
+  opacity: 0.9;
+}
+
+.stars {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+
+  filter: blur(2px);
+  z-index: -2;
+
+  padding: 5px;
+}
+
+.stars::before,
+.stars::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+.stars::before {
+  border-bottom: 5px solid #ffffff;
+
+  border-radius: 50%;
+}
+
+.stars::after {
+  border-bottom: 5px solid #ffffff;
+
+  border-radius: 50%;
+}
+
+@keyframes glowing {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.stars {
+  animation: glowing 2s infinite;
+}

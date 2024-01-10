@@ -1,0 +1,53 @@
+/* .snow-container {
+  position: absolute;
+  display: inline;
+  animation: fall 10s linear infinite;
+  z-index: -1;
+} */
+
+.precipitationSection,
+.raindrop,
+.snowflake {
+  overflow-x: hidden;
+}
+
+.snowflake,
+.raindrop {
+  background-color: rgba(255, 255, 255, 0);
+  position: absolute;
+  display: inline;
+  animation: snowfall 10s linear infinite;
+  z-index: -1;
+}
+.snowflake:before,
+.raindrop:before,
+.snowflake:after .raindrop:after {
+  content: '';
+  position: absolute;
+}
+
+.snowflake:before,
+.raindrop:before {
+  transform: rotate(-45deg);
+}
+
+.snowflake:after,
+.raindrop:after {
+  transform: rotate(45deg);
+}
+
+@keyframes snowfall {
+  0% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-2em, 60vh);
+  }
+}
