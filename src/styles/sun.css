@@ -22,19 +22,13 @@
     opacity: 0;
   }
 
-  2% {
-    left: 3%;
-    opacity: 0.3;
-  }
-
-  7% {
-    left: 7%;
+  1% {
+    left: 1%;
     opacity: 1;
   }
 
   100% {
-    left: calc(100%);
-    opacity: 0;
+    left: 100%;
   }
 }
 @media only screen and (max-width: 767px) {

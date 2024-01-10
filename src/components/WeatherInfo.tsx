@@ -5,6 +5,8 @@ import pressure from '../icons/Pressure';
 import feelsLike from '../icons/FeelsLike';
 import visibility from '../icons/Visibility';
 import wind from '../icons/Wind';
+
+// This component renders all weather info
 type Props = {
   icon: 'humidity' | 'pop' | 'pressure' | 'feelslike' | 'visibility' | 'wind';
   title: string | JSX.Element;

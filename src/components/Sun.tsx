@@ -14,7 +14,7 @@ const Sun: FC<SunProps> = ({ weatherType }) => {
   if (!isClear) {
   }
 
-  return <div className="sun"></div>;
+  return <article className="sun"></article>;
 };
 
 export default Sun;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Snowflake from '../icons/Snowflake';
 import Raindrop from '../icons/Raindrop';
 
@@ -17,7 +17,7 @@ const Precipitation: React.FC<SnowComponentProps> = ({
     { position: number; delay: number }[]
   >([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (weatherType !== 'snow' && weatherType !== 'rain') {
       setDrops([]);
       return;
