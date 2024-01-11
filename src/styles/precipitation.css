@@ -1,9 +1,10 @@
-/* .snow-container {
+.precipitationSection {
+  overflow-x: hidden;
   position: absolute;
-  display: inline;
-  animation: fall 10s linear infinite;
+  width: 100%;
+  height: 100%;
   z-index: -1;
-} */
+}
 
 .precipitationSection,
 .raindrop,
@@ -15,25 +16,9 @@
 .raindrop {
   background-color: rgba(255, 255, 255, 0);
   position: absolute;
-  display: inline;
+
   animation: snowfall 10s linear infinite;
   z-index: -1;
-}
-.snowflake:before,
-.raindrop:before,
-.snowflake:after .raindrop:after {
-  content: '';
-  position: absolute;
-}
-
-.snowflake:before,
-.raindrop:before {
-  transform: rotate(-45deg);
-}
-
-.snowflake:after,
-.raindrop:after {
-  transform: rotate(45deg);
 }
 
 @keyframes snowfall {
