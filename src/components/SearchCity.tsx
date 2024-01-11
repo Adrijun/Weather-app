@@ -31,6 +31,7 @@ const SearchCity = ({
             value={term}
             onChange={onInputChange}
             className="rounded"
+            placeholder="Enter city name"
           />
         </div>
 
